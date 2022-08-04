@@ -1,9 +1,16 @@
 body {
-  background-color: CadetBlue;
+  background-image: url(assets/grid_section_background.jpeg);
+  background-size: cover;
   display: grid;
+  font-family: 'Cinzel', serif;
   grid-template-columns: 1fr 3fr 1fr;
-  height: 100vw;
+  height: 100vh;
   margin: 0px;
+}
+
+h1,
+h2 {
+  color: white;
 }
 
 .player-bar {
@@ -12,6 +19,11 @@ body {
   height: auto;
   text-align: center;
   width: 300px;
+}
+
+.player-1-wins,
+.player-2-wins {
+  color: black;
 }
 
 .grid-section {
@@ -23,7 +35,7 @@ body {
 
 .grid {
   align-content: space-between;
-  background-color: SteelBlue;
+  background-image: url(assets/grid_background.jpeg);
   border: 3px solid orange;
   display: flex;
   flex-direction: row;
@@ -36,7 +48,7 @@ body {
 }
 
 .block {
-  background-color: CadetBlue;
+  background-color: black;
   border: 2px solid red;
   height: 150px;
   width: 150px;
