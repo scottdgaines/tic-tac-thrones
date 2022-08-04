@@ -28,7 +28,7 @@ h2 {
 
 .grid-section {
   border: 3px solid blue;
-  display: block;
+  display: tile;
   text-align: center;
   width: 100%;
 }
@@ -47,9 +47,20 @@ h2 {
   width: 480px;
 }
 
-.block {
-  background-color: black;
+.tile {
+  background-image: url(assets/grid_section_background.jpeg);
+  background-size: 100vh;
+  cursor: pointer;
   border: 2px solid red;
   height: 150px;
   width: 150px;
+}
+
+.icon {
+  height: 100px;
+  width: 85px;
+}
+
+.hide {
+  cursor: default;
 }
