@@ -1,8 +1,16 @@
 class Player {
   constructor(player) {
     this.name = player.name,
-    this.wins = 0
+    this.id = player.id,
+    this.wins = 0,
+    this.tiles = []
+  }
+
+  makeSelection(tile) {
+    this.tiles.push(tile);
+  }
+
+  increaseWins(){
+
   }
 }
-
-module.exports = Player;
