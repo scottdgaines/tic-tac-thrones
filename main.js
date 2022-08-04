@@ -22,5 +22,12 @@ tiles.forEach(function (i) {
 //Event Handlers
 function selectTile(event) {
   var selection = event.target.getAttribute('id');
-  console.log(selection)
+  console.log(selection);
+  logSelectedTile(selection);
+  return selection;
+}
+
+function logSelectedTile(selection) {
+  player1.tiles.push(selection)
+  console.log(player1)
 }
