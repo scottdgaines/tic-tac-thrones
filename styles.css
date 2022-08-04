@@ -61,6 +61,8 @@ h2 {
   width: 85px;
 }
 
-.hide {
+
+.disable {
+ {
   cursor: default;
 }
