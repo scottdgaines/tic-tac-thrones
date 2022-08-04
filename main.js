@@ -1,4 +1,5 @@
 //HTML querySelectors
+var tiles = document.querySelectorAll('.tile')
 
 //Global Variables
 var player1 = new Player({
@@ -14,5 +15,12 @@ var player2 = new Player({
 var currentGame = new Game(player1, player2)
 
 //Event Listeners
+tiles.forEach(function (i) {
+  i.addEventListener('click', selectTile)
+});
 
 //Event Handlers
+function selectTile(event) {
+  var selection = event.target.getAttribute('id');
+  console.log(selection)
+}
