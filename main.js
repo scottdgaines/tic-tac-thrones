@@ -25,13 +25,14 @@ tiles.forEach(function (i) {
 function selectTile(event) {
   var selection = event.target.getAttribute('id');
   console.log(selection);
-  logSelectedTile(selection);
+  logSelectedTile(selection), //player);
   // togglePlayer();
   return selection;
 }
 
-function logSelectedTile(selection) {
-  player1.tiles.push(selection)
+function logSelectedTile(selection //player) {
+  //inter.player
+  player.tiles.push(selection)
   console.log(player1)
 }
 
