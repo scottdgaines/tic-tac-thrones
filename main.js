@@ -15,6 +15,7 @@ var player2 = new Player({
   logo: 'assets/lannister.png'
 })
 var currentGame = new Game(player1, player2)
+console.log(currentGame)
 
 //Event Listeners
 tiles.forEach(function (i) {
@@ -24,18 +25,28 @@ tiles.forEach(function (i) {
 //Event Handlers
 function selectTile(event) {
   var selection = event.target.getAttribute('id');
-  console.log(selection);
-  logSelectedTile(selection), //player);
-  // togglePlayer();
+  verifyTile(currentGame, selection);
   return selection;
 }
 
-function logSelectedTile(selection //player) {
-  //inter.player
-  player.tiles.push(selection)
-  console.log(player1)
+function verifyTile(currentGame, selection) {
+  if (!currentGame.p1Tiles.includes(selection) &&
+    !currentGame.p2Tiles.includes(selection) ) {
+    logSelectedTile(selection, currentGame);
+    togglePlayer(currentGame, player1, player2);
+  }
 }
 
-// function togglePlayer() {
-//   currentGame.currentTurn.toggle
-// }
+function logSelectedTile(selection, currentGame) {
+  console.log(currentGame.currentTurn.name)
+  currentGame.currentTurn.tiles.push(selection);
+  console.log(currentGame.currentTurn.tiles)
+}
+
+function togglePlayer(currentGame, p1, p2) {
+  if (currentGame.currentTurn === p1) {
+  currentGame.currentTurn = p2
+  } else if (currentGame.currentTurn === p2) {
+  currentGame.currentTurn = p1
+  }
+}
