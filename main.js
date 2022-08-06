@@ -1,5 +1,6 @@
 //HTML querySelectors
-var tiles = document.querySelectorAll('.tile')
+var tiles = document.querySelectorAll('.tile');
+var banner = document.querySelector('.player-turn');
 
 //Global Variables
 var player1 = new Player({
@@ -35,7 +36,7 @@ function verifyTile(currentGame, selection, selectedElement) {
     !currentGame.p2Tiles.includes(selection) ) {
     logSelectedTile(selection, currentGame);
     placeLogo(currentGame, selectedElement);
-    togglePlayer(currentGame, player1, player2);
+    togglePlayer(currentGame, player1, player2, banner);
   }
 }
 
@@ -46,11 +47,13 @@ function logSelectedTile(selection, currentGame) {
   console.log(currentGame.currentTurn.logo)
 }
 
-function togglePlayer(currentGame, p1, p2) {
+function togglePlayer(currentGame, p1, p2, banner) {
   if (currentGame.currentTurn === p1) {
-  currentGame.currentTurn = p2
+  currentGame.currentTurn = p2;
+  banner.innerText = ` ${p2.name}`
   } else if (currentGame.currentTurn === p2) {
-  currentGame.currentTurn = p1
+  currentGame.currentTurn = p1;
+  banner.innerText = ` ${p1.name}`
   }
 }
 
