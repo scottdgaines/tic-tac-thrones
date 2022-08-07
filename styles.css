@@ -1,5 +1,6 @@
 body {
-  background-image: url(assets/grid_section_background.jpeg);
+  /* background-image: url("assets/grid_section_background.jpeg"); */
+  background-color: black;
   background-size: cover;
   display: grid;
   font-family: 'Cinzel', serif;
@@ -14,20 +15,20 @@ h2 {
 }
 
 .player-bar {
-  background-color: Gainsboro;
-  border: 2px solid red;
+  background-image: url("assets/grid_section_background.jpeg");
+  background-size: cover;
+  /* background-color: Gainsboro; */
   height: auto;
   text-align: center;
-  width: 300px;
+  width: 350px;
 }
 
 .player-1-wins,
 .player-2-wins {
-  color: black;
+  color: white;
 }
 
 .grid-section {
-  border: 3px solid blue;
   display: tile;
   text-align: center;
   width: 100%;
@@ -35,8 +36,8 @@ h2 {
 
 .grid {
   align-content: space-between;
-  background-image: url(assets/grid_background.jpeg);
-  border: 3px solid orange;
+  background-image: url("assets/grid_background.jpeg");
+  /* border: 3px solid orange; */
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -48,8 +49,10 @@ h2 {
 }
 
 .tile {
-  background-image: url(assets/grid_section_background.jpeg);
-  background-size: 100vh;
+  /* background-image: url("assets/grid_section_background.jpeg"); */
+  /* background-size: 100vh; */
+  /* border-image: url("assets/grid_background.jpeg") 5px; */
+  background-color: black;
   cursor: pointer;
   /* border: 2px solid red; */
   display: flex;
@@ -58,6 +61,42 @@ h2 {
   height: 150px;
   width: 150px;
 }
+/*
+.t1 {
+  border-width: 0px 5px 5px 0px;
+}
+
+.t2 {
+  border-width: 0px 5px 5px 5px;
+}
+
+.t3 {
+  border-width: 0px 0px 5px 5px;
+}
+
+.t4 {
+  border-width: 5px 5px 5px 0px;
+}
+
+.t5 {
+  border-width: 5px;
+}
+
+.t6 {
+  border-width: 5px 0px 5px 5px;
+}
+
+.t7 {
+  border-width: 5px 5px 0px 0px;
+}
+
+.t8 {
+  border-width: 5px 5px 0px 5px;
+}
+
+.t9 {
+  border-width: 5px 0px 0px 5px;
+} */
 
 .icon {
   height: 100px;
