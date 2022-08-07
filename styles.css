@@ -54,7 +54,10 @@ h2 {
   /* border-image: url("assets/grid_background.jpeg") 5px; */
   background-color: black;
   cursor: pointer;
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 150px;
   width: 150px;
 }
@@ -100,8 +103,12 @@ h2 {
   width: 85px;
 }
 
-
 .disable {
- {
   cursor: default;
+}
+
+.tile-icon {
+  background-color: transparent;
+  height: 105px;
+  width: 95px;
 }
