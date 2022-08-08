@@ -67,6 +67,7 @@ function checkConditions() {
   }
 }
 
+//Displays proper banners to announce the winner, invokes timer to reset round
 function declareWinner() {
   currentGame.currentWinner = currentGame.currentTurn
   titleBanner.classList.add('hide');
@@ -76,6 +77,7 @@ function declareWinner() {
   setTimeout(roundReset, 3000);
 }
 
+//Increment win count for player data model, and updates DOM
 function updateWinCount() {
   currentGame.currentTurn.wins++;
   console.log(currentGame.currentTurn.wins)
@@ -90,13 +92,15 @@ function updateWinCount() {
     p2Wins.innerText = `${player2.wins} reigns`;
   }
 }
-//Resets occupiedTiles array in Game Class, and
+
+//Resets round without resetting win counts
 function roundReset() {
   togglePlayer();
   resetBanner();
   resetGrid();
 }
 
+//resets win or draw banners back to turn banner
 function resetBanner() {
   titleBanner.classList.remove('hide');
   turnBanner.classList.remove('hide');
@@ -104,6 +108,7 @@ function resetBanner() {
   drawBanner.classList.add('hide')
 }
 
+//removes all logos, and resets arrays
 function resetGrid() {
   currentGame.occupiedTiles = [null];
   player1.tiles = [];
@@ -120,6 +125,7 @@ function resetGrid() {
   <article class="tile t9" id=9></article>`
 }
 
+//Manipulates styling to show proper banners, toggles player, and sets timer to reset round
 function declareDraw() {
   titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
@@ -127,6 +133,7 @@ function declareDraw() {
   setTimeout(roundReset, 4000);
   togglePlayer();
 }
+
 //Changes whose turn it is, updates banner and grid icon
 function togglePlayer(p1, p2) {
   if (currentGame.currentTurn === p1) {
@@ -137,6 +144,7 @@ function togglePlayer(p1, p2) {
   playerName.innerText = ` ${p1.name}`
   }
 }
+
 //Changes selected tile to logo of current player
 function placeLogo(selectedElement) {
   selectedElement.classList.add("disable")
