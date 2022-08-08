@@ -4,6 +4,8 @@ var titleBanner = document.querySelector('.title-banner');
 var playerName = document.querySelector('.player-name');
 var turnBanner = document.querySelector('.turn-banner');
 var winnerBanner = document.querySelector('.winner-banner');
+var p1Wins = document.querySelector('.p1-wins');
+var p2Wins = document.querySelector('.p2-wins');
 
 //Global Variables
 var player1 = new Player({
@@ -56,7 +58,7 @@ function checkConditions() {
     currentGame.currentTurn.tiles.includes(index3)) {
       console.log('we have a winner')
       declareWinner();
-      //update win count
+      updateWinCount();
       //round reset
     }
   }
@@ -67,6 +69,18 @@ function declareWinner() {
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
+}
+
+function updateWinCount() {
+  currentGame.currentTurn.wins++;
+  console.log(player1, player2)
+  if (player1.wins === 1 || player2.wins === 1) {
+    p1Wins.innerText = `${player1.wins} reign`;
+    p2Wins.innerText = `${player2.wins} reign`;
+  } else {
+    p1Wins.innerText = `${player1.wins} reigns`;
+    p2Wins.innerText = `${player2.wins} reigns`;
+  }
 }
 
 //Changes whose turn it is, updates banner and grid icon

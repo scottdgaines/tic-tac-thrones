@@ -25,8 +25,8 @@ h2 {
   background-position: right;
 }
 
-.player-1-win-count,
-.player-2-win-count {
+.p1-wins,
+.p2-wins {
   color: white;
 }
 

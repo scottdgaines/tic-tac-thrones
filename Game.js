@@ -1,7 +1,5 @@
 class Game {
   constructor(p1, p2) {
-    this.p1wins = p1.wins,
-    this.p2wins = p2.wins,
     this.draws = 0,
     this.currentTurn = p1,
     this.occupiedTiles = [null]
@@ -17,3 +15,6 @@ class Game {
                     ]
   }
 }
+//startNewGame()
+//instantiate new players
+//reset win counts
