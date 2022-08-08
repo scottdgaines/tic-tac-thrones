@@ -4,7 +4,7 @@ var banner = document.querySelector('.player-turn');
 
 //Global Variables
 var player1 = new Player({
-  name: 'House Targaryen',
+  name: 'House Stark',
   id: 'one',
   wins: 0,
   logo: 'assets/stark-white.png'
@@ -31,8 +31,8 @@ function verifyTile() {
   if (!currentGame.occupiedTiles.includes(selection)) {
     logSelectedTile(selection);
     placeLogo(selectedElement);
-    togglePlayer(player1, player2);
     checkConditions();
+    togglePlayer(player1, player2);
   }
 }
 
@@ -44,19 +44,20 @@ function logSelectedTile(selection) {
 
 //Compares player's seclected tiles against the winning conditions
 function checkConditions() {
-  var comparison = conditions.every(compare)
-  console.log(comparison)
-}
-
-function compare() {
-  console.log(conditions)
+  console.log("hello")
   for (var i = 0; i < conditions.length; i++) {
-    if (currentGame.currentTurn.tiles.includes(conditions[i])) {
-      return 'jello'
+    var index1 = conditions[i][0];
+    var index2 = conditions[i][1];
+    var index3 = conditions[i][2];
+    console.log('hi')
+    if (currentGame.currentTurn.tiles.includes(index1) &&
+    currentGame.currentTurn.tiles.includes(index2) &&
+    currentGame.currentTurn.tiles.includes(index3)) {
+
     }
+    //if else drawConditions()
   }
 }
-
 
 //Changes whose turn it is, updates banner and grid icon
 function togglePlayer(p1, p2) {
