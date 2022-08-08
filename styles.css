@@ -77,3 +77,11 @@ h2 {
   height: 105px;
   width: 95px;
 }
+
+.reset-button {
+  background-color: #637478;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  margin-top: 50px;
+  width: 150px;
+}

@@ -8,6 +8,7 @@ var winnerBanner = document.querySelector('.winner-banner');
 var drawBanner = document.querySelector('.draw-banner');
 var p1Wins = document.querySelector('.p1-wins');
 var p2Wins = document.querySelector('.p2-wins');
+var button = document.querySelector('.reset-button')
 
 //Global Variables
 var player1 = new Player({
@@ -27,9 +28,21 @@ var conditions = currentGame.winningConditions;
 
 //Event Listeners
 grid.addEventListener('click', verifyTile);
+button.addEventListener('click', newGame)
 
 //Event Handlers
 //Keeps an occupied tile from being reassigned
+function newGame() {
+  resetWinCount();
+  reset();
+}
+
+function resetWinCount() {
+  player1.wins = 0;
+  player2.wins = 0;
+  updateWinCount();
+}
+
 function verifyTile() {
   var selection = event.target.getAttribute('id');
   var selectedElement = event.target;
@@ -56,10 +69,11 @@ function checkConditions() {
     if (currentGame.currentTurn.tiles.includes(index1) &&
     currentGame.currentTurn.tiles.includes(index2) &&
     currentGame.currentTurn.tiles.includes(index3)) {
+      currentGame.currentTurn.wins++;
       declareWinner();
       updateWinCount();
     } else if (currentGame.occupiedTiles.length === 10 &&
-      (!currentGame.currentTurn.tiles.includes(index1) &&
+      !(currentGame.currentTurn.tiles.includes(index1) &&
       currentGame.currentTurn.tiles.includes(index2) &&
       currentGame.currentTurn.tiles.includes(index3))) {
         declareDraw()
@@ -73,12 +87,11 @@ function declareWinner() {
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
-  setTimeout(roundReset, 3000);
+  setTimeout(reset, 3000);
 }
 
 //Increment win count for player data model, and updates DOM
 function updateWinCount() {
-  currentGame.currentTurn.wins++;
   if (player1.wins === 1) {
     p1Wins.innerText = `${player1.wins} reign`;
   } else if (player1.wins < 1 || player1.wins > 1) {
@@ -92,7 +105,7 @@ function updateWinCount() {
 }
 
 //Resets round without resetting win counts
-function roundReset() {
+function reset() {
   togglePlayer();
   resetBanner();
   resetGrid();
