@@ -67,7 +67,6 @@ function declareWinner() {
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
-
 }
 
 //Changes whose turn it is, updates banner and grid icon

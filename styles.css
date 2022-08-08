@@ -1,5 +1,4 @@
 body {
-  /* background-image: url("assets/grid_section_background.jpeg"); */
   background-color: #0D0D0D;
   background-size: cover;
   display: grid;
@@ -17,7 +16,6 @@ h2 {
 .player-bar {
   background-image: url("assets/grid_section_background.jpeg");
   background-size: cover;
-  /* background-color: Gainsboro; */
   height: auto;
   text-align: center;
   width: 325px;
@@ -41,7 +39,6 @@ h2 {
 .grid {
   align-content: space-between;
   background-image: url("assets/grid_background.jpeg");
-  /* border: 3px solid orange; */
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -53,54 +50,14 @@ h2 {
 }
 
 .tile {
-  /* background-image: url("assets/grid_section_background.jpeg"); */
-  /* background-size: 100vh; */
-  /* border-image: url("assets/grid_background.jpeg") 5px; */
   background-color: #0D0D0D;
   cursor: pointer;
-  /* border: 2px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 150px;
   width: 150px;
 }
-/*
-.t1 {
-  border-width: 0px 5px 5px 0px;
-}
-
-.t2 {
-  border-width: 0px 5px 5px 5px;
-}
-
-.t3 {
-  border-width: 0px 0px 5px 5px;
-}
-
-.t4 {
-  border-width: 5px 5px 5px 0px;
-}
-
-.t5 {
-  border-width: 5px;
-}
-
-.t6 {
-  border-width: 5px 0px 5px 5px;
-}
-
-.t7 {
-  border-width: 5px 5px 0px 0px;
-}
-
-.t8 {
-  border-width: 5px 5px 0px 5px;
-}
-
-.t9 {
-  border-width: 5px 0px 0px 5px;
-} */
 
 .icon {
   height: 100px;
