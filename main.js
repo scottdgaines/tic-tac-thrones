@@ -1,4 +1,5 @@
 //HTML querySelectors
+var grid = document.querySelector('.grid')
 var tiles = document.querySelectorAll('.tile');
 var titleBanner = document.querySelector('.title-banner');
 var playerName = document.querySelector('.player-name');
@@ -56,19 +57,19 @@ function checkConditions() {
     if (currentGame.currentTurn.tiles.includes(index1) &&
     currentGame.currentTurn.tiles.includes(index2) &&
     currentGame.currentTurn.tiles.includes(index3)) {
-      console.log('we have a winner')
       declareWinner();
       updateWinCount();
-      //round reset
     }
   }
 }
 
 function declareWinner() {
+  currentGame.currentWinner = currentGame.currentTurn
   titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
+  setTimeout(roundReset, 3000, player1, player2);
 }
 
 function updateWinCount() {
@@ -81,6 +82,36 @@ function updateWinCount() {
     p1Wins.innerText = `${player1.wins} reigns`;
     p2Wins.innerText = `${player2.wins} reigns`;
   }
+}
+
+function roundReset(p1, p2) {
+  if (currentGame.currentWinner === p1) {
+    currentGame.currentTurn = p2
+  } else if (currentGame.currentWinner === p2) {
+    currentGame.currentTurn = p1
+  }
+  resetBanner();
+  resetGrid();
+}
+
+function resetBanner() {
+  titleBanner.classList.remove('hide');
+  turnBanner.classList.remove('hide');
+  winnerBanner.classList.add('hide');
+}
+
+function resetGrid() {
+  console.log('jello')
+  grid.innerHTML =
+  `<article class="tile t1" id=1></article>
+  <article class="tile t2" id=2></article>
+  <article class="tile t3" id=3></article>
+  <article class="tile t4" id=4></article>
+  <article class="tile t5" id=5></article>
+  <article class="tile t6" id=6></article>
+  <article class="tile t7" id=7></article>
+  <article class="tile t8" id=8></article>
+  <article class="tile t9" id=9></article>`
 }
 
 //Changes whose turn it is, updates banner and grid icon
