@@ -5,6 +5,7 @@ var titleBanner = document.querySelector('.title-banner');
 var playerName = document.querySelector('.player-name');
 var turnBanner = document.querySelector('.turn-banner');
 var winnerBanner = document.querySelector('.winner-banner');
+var drawBanner = document.querySelector('.draw-banner');
 var p1Wins = document.querySelector('.p1-wins');
 var p2Wins = document.querySelector('.p2-wins');
 
@@ -25,9 +26,7 @@ var currentGame = new Game(player1, player2);
 var conditions = currentGame.winningConditions;
 
 //Event Listeners
-tiles.forEach(function (i) {
-  i.addEventListener('click', verifyTile)
-});
+grid.addEventListener('click', verifyTile);
 
 //Event Handlers
 //Keeps an occupied tile from being reassigned
@@ -59,6 +58,11 @@ function checkConditions() {
     currentGame.currentTurn.tiles.includes(index3)) {
       declareWinner();
       updateWinCount();
+    } else if (currentGame.occupiedTiles.length === 10 &&
+      (!currentGame.currentTurn.tiles.includes(index1) &&
+      currentGame.currentTurn.tiles.includes(index2) &&
+      currentGame.currentTurn.tiles.includes(index3))) {
+        declareDraw()
     }
   }
 }
@@ -69,27 +73,26 @@ function declareWinner() {
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
-  setTimeout(roundReset, 3000, player1, player2);
+  setTimeout(roundReset, 3000);
 }
 
 function updateWinCount() {
   currentGame.currentTurn.wins++;
-  console.log(player1, player2)
-  if (player1.wins === 1 || player2.wins === 1) {
+  console.log(currentGame.currentTurn.wins)
+  console.log(player2.wins)
+  if (player1.wins === 1) {
     p1Wins.innerText = `${player1.wins} reign`;
+  } else if (player2.wins === 1) {
     p2Wins.innerText = `${player2.wins} reign`;
-  } else {
+  } else if (player1.wins < 1 || player1.wins > 1) {
     p1Wins.innerText = `${player1.wins} reigns`;
+  } else if (player2.wins < 1 || player2.wins > 1) {
     p2Wins.innerText = `${player2.wins} reigns`;
   }
 }
-
-function roundReset(p1, p2) {
-  if (currentGame.currentWinner === p1) {
-    currentGame.currentTurn = p2
-  } else if (currentGame.currentWinner === p2) {
-    currentGame.currentTurn = p1
-  }
+//Resets occupiedTiles array in Game Class, and
+function roundReset() {
+  togglePlayer();
   resetBanner();
   resetGrid();
 }
@@ -98,10 +101,13 @@ function resetBanner() {
   titleBanner.classList.remove('hide');
   turnBanner.classList.remove('hide');
   winnerBanner.classList.add('hide');
+  drawBanner.classList.add('hide')
 }
 
 function resetGrid() {
-  console.log('jello')
+  currentGame.occupiedTiles = [null];
+  player1.tiles = [];
+  player2.tiles = [];
   grid.innerHTML =
   `<article class="tile t1" id=1></article>
   <article class="tile t2" id=2></article>
@@ -114,6 +120,13 @@ function resetGrid() {
   <article class="tile t9" id=9></article>`
 }
 
+function declareDraw() {
+  titleBanner.classList.add('hide');
+  turnBanner.classList.add('hide');
+  drawBanner.classList.remove('hide');
+  setTimeout(roundReset, 4000);
+  togglePlayer();
+}
 //Changes whose turn it is, updates banner and grid icon
 function togglePlayer(p1, p2) {
   if (currentGame.currentTurn === p1) {
@@ -124,7 +137,6 @@ function togglePlayer(p1, p2) {
   playerName.innerText = ` ${p1.name}`
   }
 }
-
 //Changes selected tile to logo of current player
 function placeLogo(selectedElement) {
   selectedElement.classList.add("disable")
