@@ -111,6 +111,10 @@ h2 {
   cursor: default;
 }
 
+.hide {
+  display: none;
+}
+
 .tile-icon {
   background-color: transparent;
   height: 105px;

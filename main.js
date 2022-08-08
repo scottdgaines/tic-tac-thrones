@@ -1,6 +1,9 @@
 //HTML querySelectors
 var tiles = document.querySelectorAll('.tile');
-var banner = document.querySelector('.player-turn');
+var titleBanner = document.querySelector('.title-banner');
+var playerName = document.querySelector('.player-name');
+var turnBanner = document.querySelector('.turn-banner');
+var winnerBanner = document.querySelector('.winner-banner');
 
 //Global Variables
 var player1 = new Player({
@@ -44,33 +47,37 @@ function logSelectedTile(selection) {
 
 //Compares player's seclected tiles against the winning conditions
 function checkConditions() {
-  console.log("hello")
   for (var i = 0; i < conditions.length; i++) {
     var index1 = conditions[i][0];
     var index2 = conditions[i][1];
     var index3 = conditions[i][2];
-    console.log('hi')
     if (currentGame.currentTurn.tiles.includes(index1) &&
     currentGame.currentTurn.tiles.includes(index2) &&
     currentGame.currentTurn.tiles.includes(index3)) {
-<<<<<<< HEAD
-      console.log('jello')
-=======
-
->>>>>>> d79830eb5502758e313ac0a4be0e4eafac47bdf4
+      console.log('we have a winner')
+      declareWinner();
+      //update win count
+      //round reset
     }
-    //if else drawConditions()
   }
+}
+
+function declareWinner() {
+  titleBanner.classList.add('hide');
+  turnBanner.classList.add('hide');
+  winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
+  winnerBanner.classList.remove('hide');
+
 }
 
 //Changes whose turn it is, updates banner and grid icon
 function togglePlayer(p1, p2) {
   if (currentGame.currentTurn === p1) {
   currentGame.currentTurn = p2;
-  banner.innerText = ` ${p2.name}`
+  playerName.innerText = ` ${p2.name}`
   } else if (currentGame.currentTurn === p2) {
   currentGame.currentTurn = p1;
-  banner.innerText = ` ${p1.name}`
+  playerName.innerText = ` ${p1.name}`
   }
 }
 
