@@ -40,7 +40,7 @@ function newGame() {
 function resetWinCount() {
   player1.wins = 0;
   player2.wins = 0;
-  updateWinCount();
+  updateWinDisplay();
 }
 
 function verifyTile() {
@@ -71,10 +71,10 @@ function checkConditions() {
     currentGame.currentTurn.tiles.includes(index3)) {
       currentGame.currentTurn.wins++;
       declareWinner();
-      updateWinCount();
+      updateWinDisplay();
     } else if (currentGame.occupiedTiles.length === 10 &&
-      !(currentGame.currentTurn.tiles.includes(index1) &&
-      currentGame.currentTurn.tiles.includes(index2) &&
+      !(currentGame.currentTurn.tiles.includes(index1) ||
+      currentGame.currentTurn.tiles.includes(index2) ||
       currentGame.currentTurn.tiles.includes(index3))) {
         declareDraw()
     }
@@ -91,7 +91,7 @@ function declareWinner() {
 }
 
 //Increment win count for player data model, and updates DOM
-function updateWinCount() {
+function updateWinDisplay() {
   if (player1.wins === 1) {
     p1Wins.innerText = `${player1.wins} reign`;
   } else if (player1.wins < 1 || player1.wins > 1) {
@@ -141,7 +141,7 @@ function declareDraw() {
   titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
   drawBanner.classList.remove('hide');
-  setTimeout(roundReset, 4000);
+  setTimeout(reset, 4000);
   togglePlayer();
 }
 
