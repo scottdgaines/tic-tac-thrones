@@ -4,7 +4,7 @@ var banner = document.querySelector('.player-turn');
 
 //Global Variables
 var player1 = new Player({
-  name: 'House Targaryen',
+  name: 'House Stark',
   id: 'one',
   wins: 0,
   logo: 'assets/stark-white.png'
@@ -53,7 +53,11 @@ function checkConditions() {
     if (currentGame.currentTurn.tiles.includes(index1) &&
     currentGame.currentTurn.tiles.includes(index2) &&
     currentGame.currentTurn.tiles.includes(index3)) {
+<<<<<<< HEAD
       console.log('jello')
+=======
+
+>>>>>>> d79830eb5502758e313ac0a4be0e4eafac47bdf4
     }
     //if else drawConditions()
   }
