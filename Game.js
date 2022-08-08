@@ -2,8 +2,7 @@ class Game {
   constructor(p1, p2) {
     this.draws = 0,
     this.currentTurn = p1,
-    this.currentWinner
-    this.occupiedTiles = [null]
+    this.occupiedTiles = [null],
     this.winningConditions = [
                       ['1', '2', '3'],
                       ['4', '5', '6'],

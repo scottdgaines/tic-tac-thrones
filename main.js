@@ -69,7 +69,6 @@ function checkConditions() {
 
 //Displays proper banners to announce the winner, invokes timer to reset round
 function declareWinner() {
-  currentGame.currentWinner = currentGame.currentTurn
   titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
@@ -80,14 +79,13 @@ function declareWinner() {
 //Increment win count for player data model, and updates DOM
 function updateWinCount() {
   currentGame.currentTurn.wins++;
-  console.log(currentGame.currentTurn.wins)
-  console.log(player2.wins)
   if (player1.wins === 1) {
     p1Wins.innerText = `${player1.wins} reign`;
-  } else if (player2.wins === 1) {
-    p2Wins.innerText = `${player2.wins} reign`;
   } else if (player1.wins < 1 || player1.wins > 1) {
     p1Wins.innerText = `${player1.wins} reigns`;
+  }
+  if (player2.wins === 1) {
+    p2Wins.innerText = `${player2.wins} reign`;
   } else if (player2.wins < 1 || player2.wins > 1) {
     p2Wins.innerText = `${player2.wins} reigns`;
   }
