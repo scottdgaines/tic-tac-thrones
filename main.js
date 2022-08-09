@@ -1,7 +1,7 @@
 //HTML querySelectors: Arranged Alphabetically According to Name
 var button = document.querySelector('.reset-button');
 var drawBanner = document.querySelector('.draw-banner');
-var grid = document.querySelector('.grid')
+var grid = document.querySelector('.grid');
 var p1Title = document.querySelector('.player1-title');
 var p2Title = document.querySelector('.player2-title');
 var p1Wins = document.querySelector('.p1-wins');
@@ -32,7 +32,6 @@ grid.addEventListener('click', verifyTile);
 window.addEventListener('load', newGame);
 
 //Event Handlers: Arranged Alphabetically According to Function Name
-
 //Invoked by currentGame.checkWinConditions()
 //Manipulates Styling to Show Banners According to Winner, and Sets roundReset Timer
 function declareDraw() {
@@ -49,9 +48,9 @@ function declareDraw() {
 function declareWinner() {
   button.classList.add('hide');
   grid.classList.add('hide');
-  titleBanner.classList.add('hide')
+  titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
-  winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
+  winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`;
   winnerBanner.classList.remove('hide');
   setTimeout(roundReset, 3000);
 }
@@ -70,15 +69,15 @@ function newGame() {
 //Invoked by verifyTile()
 //Displays Logo of Current Player on Tile Once Selected
 function placeLogo(selectedElement) {
- selectedElement.classList.add("disable")
+ selectedElement.classList.add("disable");
  selectedElement.innerHTML = `<img class="tile-icon" src="${currentGame.currentTurn.logo}"
-alt="${currentGame.currentTurn.name}\'s logo" />`
-};
+  alt="${currentGame.currentTurn.name}\'s logo" />`
+}
 
 //Invoked by roundReset
 //Resets From Win or Draw Banners to Banner Displaying Current Turn
 function resetBanner() {
-  drawBanner.classList.add('hide')
+  drawBanner.classList.add('hide');
   winnerBanner.classList.add('hide');
   titleBanner.classList.remove('hide');
   turnBanner.classList.remove('hide');
@@ -90,7 +89,7 @@ function resetGrid() {
   currentGame.occupiedTiles = [null];
   player1.tiles = [];
   player2.tiles = [];
-  grid.classList.remove('hide')
+  grid.classList.remove('hide');
   grid.innerHTML =
   `<article class="tile t1" id=1></article>
   <article class="tile t2" id=2></article>
@@ -106,7 +105,7 @@ function resetGrid() {
 //Invoked by newGame() and setTimeout in declareDraw()
 //Resets Game Board Without Resetting Win Counts
 function roundReset() {
-  button.classList.remove('hide')
+  button.classList.remove('hide');
   togglePlayer();
   resetBanner();
   resetGrid();
@@ -131,7 +130,8 @@ function updateWinDisplay() {
     p1Wins.innerText = `${player1.wins} reign`;
   } else if (player1.wins < 1 || player1.wins > 1) {
     p1Wins.innerText = `${player1.wins} reigns`;
-  }
+  };
+
   if (player2.wins === 1) {
     p2Wins.innerText = `${player2.wins} reign`;
   } else if (player2.wins < 1 || player2.wins > 1) {
@@ -144,6 +144,7 @@ function updateWinDisplay() {
 function verifyTile() {
   var selection = event.target.getAttribute('id');
   var selectedElement = event.target;
+
   if (!currentGame.occupiedTiles.includes(selection)) {
     currentGame.logSelectedTile(selection);
     placeLogo(selectedElement);
