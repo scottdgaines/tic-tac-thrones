@@ -15,13 +15,11 @@ class Game {
                       ['3', '5', '7']
                     ]
   }
-
   //Records selected tile's ID in the selecting-player's array
   logSelectedTile(selection) {
     this.currentTurn.tiles.push(selection);
     this.occupiedTiles.push(selection);
   }
-
   //Compares player's seclected tiles against the winning conditions
   checkWinConditions() {
     var conditions = this.winningConditions;
@@ -42,11 +40,10 @@ class Game {
       }
     }
   }
+  //Invoked by newGame(), resets wine properties of player instances to 0
   resetWinCount() {
     this.player1.wins = 0;
-    this,player2.wins = 0;
+    this.player2.wins = 0;
     updateWinDisplay();
   }
 }
-//startNewGame()
-//reset win counts

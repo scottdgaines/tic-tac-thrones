@@ -42,7 +42,6 @@ function declareDraw() {
   drawBanner.classList.remove('hide');
   setTimeout(roundReset, 4000);
 }
-
 //Invoked by currentGame.checkWinConditions
 //Displays Proper Banners to Announce the Winner, Invokes Timer to Reset Round
 function declareWinner() {
@@ -54,7 +53,6 @@ function declareWinner() {
   winnerBanner.classList.remove('hide');
   setTimeout(roundReset, 3000);
 }
-
 //Invoked on Window Load and/or Button Click
 //Resets Game to Original / Neuatral Setting
 function newGame() {
@@ -65,7 +63,6 @@ function newGame() {
   currentGame.resetWinCount();
   roundReset();
 }
-
 //Invoked by verifyTile()
 //Displays Logo of Current Player on Tile Once Selected
 function placeLogo(selectedElement) {
@@ -73,7 +70,6 @@ function placeLogo(selectedElement) {
  selectedElement.innerHTML = `<img class="tile-icon" src="${currentGame.currentTurn.logo}"
   alt="${currentGame.currentTurn.name}\'s logo" />`
 }
-
 //Invoked by roundReset
 //Resets From Win or Draw Banners to Banner Displaying Current Turn
 function resetBanner() {
@@ -82,7 +78,6 @@ function resetBanner() {
   titleBanner.classList.remove('hide');
   turnBanner.classList.remove('hide');
 }
-
 //Invoked by roundReset()
 //Removes All Logos From Grid, and Resets Player Selected Tile Arrays
 function resetGrid() {
@@ -101,7 +96,6 @@ function resetGrid() {
   <article class="tile t8" id=8></article>
   <article class="tile t9" id=9></article>`
 }
-
 //Invoked by newGame() and setTimeout in declareDraw()
 //Resets Game Board Without Resetting Win Counts
 function roundReset() {
@@ -110,7 +104,6 @@ function roundReset() {
   resetBanner();
   resetGrid();
 }
-
 //Invoked by verifyTile() and  roundReset()
 //Updates Current Turn in Game Class, and Displays Current Turn Banner Accordingly
 function togglePlayer(player1, player2) {
@@ -122,7 +115,6 @@ function togglePlayer(player1, player2) {
   turnName.innerText = ` ${currentGame.currentTurn.name}`
   }
 }
-
 //Invoked by currentgame.checkWinConditions() + resetWinCount()
 //Displays Updated Win Count
 function updateWinDisplay() {
@@ -138,7 +130,6 @@ function updateWinDisplay() {
     p2Wins.innerText = `${player2.wins} reigns`;
   }
 }
-
 //Invoked by Clicking a Tile
 //Ensures an Occupied Tile Can't Be Reassigned
 function verifyTile() {
