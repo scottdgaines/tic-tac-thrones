@@ -37,7 +37,7 @@ class Game {
         this.currentTurn.increaseWins();
         declareWinner();
         updateWinDisplay();
-      } else if (currentGame.occupiedTiles.length === 10 &&
+      } else if (this.occupiedTiles.length === 10 &&
           !(currentTiles.includes(index1) && currentTiles.includes(index2)
           && currentTiles.includes(index3))) {
           declareDraw()
