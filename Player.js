@@ -6,4 +6,8 @@ class Player {
     this.logo = player.logo,
     this.tiles = []
   }
+
+  increaseWins(){
+    this.wins++;
+  }
 }

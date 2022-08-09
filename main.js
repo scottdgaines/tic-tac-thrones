@@ -23,7 +23,6 @@ var currentGame = new Game({
   logo: 'assets/lannister-white.png'});
 var player1 = currentGame.player1;
 var player2 = currentGame.player2;
-var conditions = currentGame.winningConditions;
 
 //Event Listeners
 grid.addEventListener('click', verifyTile);
@@ -32,14 +31,8 @@ button.addEventListener('click', newGame)
 //Event Handlers
 //Keeps an occupied tile from being reassigned
 function newGame() {
-  resetWinCount();
-  reset();
-}
-
-function resetWinCount() {
-  player1.wins = 0;
-  player2.wins = 0;
-  updateWinDisplay();
+  currentGame.resetWinCount();
+  roundReset();
 }
 
 function verifyTile() {
@@ -48,29 +41,8 @@ function verifyTile() {
   if (!currentGame.occupiedTiles.includes(selection)) {
     currentGame.logSelectedTile(selection);
     placeLogo(selectedElement);
-    checkWinConditions();
+    currentGame.checkWinConditions();
     togglePlayer(player1, player2);
-  }
-}
-
-//Compares player's seclected tiles against the winning conditions
-function checkWinConditions() {
-  for (var i = 0; i < conditions.length; i++) {
-    var index1 = conditions[i][0];
-    var index2 = conditions[i][1];
-    var index3 = conditions[i][2];
-    if (currentGame.currentTurn.tiles.includes(index1) &&
-    currentGame.currentTurn.tiles.includes(index2) &&
-    currentGame.currentTurn.tiles.includes(index3)) {
-      currentGame.currentTurn.wins++;
-      declareWinner();
-      updateWinDisplay();
-    } else if (currentGame.occupiedTiles.length === 10 &&
-      !(currentGame.currentTurn.tiles.includes(index1) &&
-      currentGame.currentTurn.tiles.includes(index2) &&
-      currentGame.currentTurn.tiles.includes(index3))) {
-        declareDraw()
-    }
   }
 }
 
@@ -97,7 +69,7 @@ function updateWinDisplay() {
 }
 
 //Resets round without resetting win counts
-function reset() {
+function roundReset() {
   button.classList.remove('hide')
   togglePlayer();
   resetBanner();

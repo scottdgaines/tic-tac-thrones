@@ -21,6 +21,33 @@ class Game {
     this.currentTurn.tiles.push(selection);
     this.occupiedTiles.push(selection);
   }
+
+  //Compares player's seclected tiles against the winning conditions
+  checkWinConditions() {
+    var conditions = this.winningConditions;
+    var currentTiles = this.currentTurn.tiles
+    for (var i = 0; i < conditions.length; i++) {
+      var index1 = conditions[i][0];
+      var index2 = conditions[i][1];
+      var index3 = conditions[i][2];
+      if (currentTiles.includes(index1) && currentTiles.includes(index2)
+        && currentTiles.includes(index3)) {
+        this.currentTurn.increaseWins();
+        declareWinner();
+        updateWinDisplay();
+        console.log(this.currentTurn)
+      } else if (currentGame.occupiedTiles.length === 10 &&
+          !(currentTiles.includes(index1) && currentTiles.includes(index2)
+          && currentTiles.includes(index3))) {
+          declareDraw()
+      }
+    }
+  }
+  resetWinCount() {
+    this.player1.wins = 0;
+    this,player2.wins = 0;
+    updateWinDisplay();
+  }
 }
 //startNewGame()
 //reset win counts
