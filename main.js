@@ -49,7 +49,7 @@ function verifyTile() {
   if (!currentGame.occupiedTiles.includes(selection)) {
     logSelectedTile(selection);
     placeLogo(selectedElement);
-    checkConditions();
+    checkWinConditions();
     togglePlayer(player1, player2);
   }
 }
