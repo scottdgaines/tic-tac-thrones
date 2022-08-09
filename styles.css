@@ -31,7 +31,6 @@ h2 {
 }
 
 .grid-section {
-  display: tile;
   text-align: center;
   width: 100%;
 }
@@ -58,6 +57,7 @@ h2 {
   height: 150px;
   width: 150px;
 }
+
 
 .icon {
   height: 100px;
