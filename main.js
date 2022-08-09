@@ -11,19 +11,18 @@ var p2Wins = document.querySelector('.p2-wins');
 var button = document.querySelector('.reset-button')
 
 //Global Variables
-var player1 = new Player({
+var currentGame = new Game({
   name: 'House Stark',
   id: 'one',
   wins: 0,
-  logo: 'assets/stark-white.png'
-});
-var player2 = new Player({
+  logo: 'assets/stark-white.png'},
+  {
   name: 'House Lannister',
   id: 'two',
   wins: 0,
-  logo: 'assets/lannister-white.png'
-});
-var currentGame = new Game(player1, player2);
+  logo: 'assets/lannister-white.png'});
+var player1 = currentGame.player1;
+var player2 = currentGame.player2;
 var conditions = currentGame.winningConditions;
 
 //Event Listeners
@@ -47,17 +46,11 @@ function verifyTile() {
   var selection = event.target.getAttribute('id');
   var selectedElement = event.target;
   if (!currentGame.occupiedTiles.includes(selection)) {
-    logSelectedTile(selection);
+    currentGame.logSelectedTile(selection);
     placeLogo(selectedElement);
     checkWinConditions();
     togglePlayer(player1, player2);
   }
-}
-
-//Records selected tile ID in the selecting-player's array
-function logSelectedTile(selection) {
-  currentGame.currentTurn.tiles.push(selection);
-  currentGame.occupiedTiles.push(selection)
 }
 
 //Compares player's seclected tiles against the winning conditions
@@ -148,13 +141,13 @@ function declareDraw() {
 }
 
 //Changes whose turn it is, updates banner and grid icon
-function togglePlayer(p1, p2) {
-  if (currentGame.currentTurn === p1) {
-  currentGame.currentTurn = p2;
-  playerName.innerText = ` ${p2.name}`
-  } else if (currentGame.currentTurn === p2) {
-  currentGame.currentTurn = p1;
-  playerName.innerText = ` ${p1.name}`
+function togglePlayer(player1, player2) {
+  if (currentGame.currentTurn === player1) {
+  currentGame.currentTurn = player2;
+  playerName.innerText = ` ${player2.name}`
+} else if (currentGame.currentTurn === player2) {
+  currentGame.currentTurn = player1;
+  playerName.innerText = ` ${player1.name}`
   }
 }
 

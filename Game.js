@@ -1,7 +1,8 @@
 class Game {
-  constructor(p1, p2) {
-    this.draws = 0,
-    this.currentTurn = p1,
+  constructor(player1, player2) {
+    this.player1 = new Player(player1),
+    this.player2 = new Player (player2),
+    this.currentTurn = this.player1,
     this.occupiedTiles = [null],
     this.winningConditions = [
                       ['1', '2', '3'],
@@ -14,7 +15,12 @@ class Game {
                       ['3', '5', '7']
                     ]
   }
+
+  //Records selected tile's ID in the selecting-player's array
+  logSelectedTile(selection) {
+    this.currentTurn.tiles.push(selection);
+    this.occupiedTiles.push(selection);
+  }
 }
 //startNewGame()
-//instantiate new players
 //reset win counts
