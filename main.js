@@ -49,7 +49,7 @@ function verifyTile() {
   if (!currentGame.occupiedTiles.includes(selection)) {
     logSelectedTile(selection);
     placeLogo(selectedElement);
-    checkConditions();
+    checkWinConditions();
     togglePlayer(player1, player2);
   }
 }
@@ -61,7 +61,7 @@ function logSelectedTile(selection) {
 }
 
 //Compares player's seclected tiles against the winning conditions
-function checkConditions() {
+function checkWinConditions() {
   for (var i = 0; i < conditions.length; i++) {
     var index1 = conditions[i][0];
     var index2 = conditions[i][1];
@@ -73,8 +73,8 @@ function checkConditions() {
       declareWinner();
       updateWinDisplay();
     } else if (currentGame.occupiedTiles.length === 10 &&
-      !(currentGame.currentTurn.tiles.includes(index1) ||
-      currentGame.currentTurn.tiles.includes(index2) ||
+      !(currentGame.currentTurn.tiles.includes(index1) &&
+      currentGame.currentTurn.tiles.includes(index2) &&
       currentGame.currentTurn.tiles.includes(index3))) {
         declareDraw()
     }
@@ -83,7 +83,6 @@ function checkConditions() {
 
 //Displays proper banners to announce the winner, invokes timer to reset round
 function declareWinner() {
-  titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
@@ -106,6 +105,7 @@ function updateWinDisplay() {
 
 //Resets round without resetting win counts
 function reset() {
+  button.classList.remove('hide')
   togglePlayer();
   resetBanner();
   resetGrid();
@@ -121,6 +121,7 @@ function resetBanner() {
 
 //removes all logos, and resets arrays
 function resetGrid() {
+  grid.classList.remove('hide')
   currentGame.occupiedTiles = [null];
   player1.tiles = [];
   player2.tiles = [];
@@ -140,9 +141,10 @@ function resetGrid() {
 function declareDraw() {
   titleBanner.classList.add('hide');
   turnBanner.classList.add('hide');
+  button.classList.add('hide');
+  grid.classList.add('hide');
   drawBanner.classList.remove('hide');
   setTimeout(reset, 4000);
-  togglePlayer();
 }
 
 //Changes whose turn it is, updates banner and grid icon
