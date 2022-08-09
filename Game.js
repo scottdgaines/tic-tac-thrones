@@ -35,7 +35,6 @@ class Game {
         this.currentTurn.increaseWins();
         declareWinner();
         updateWinDisplay();
-        console.log(this.currentTurn)
       } else if (currentGame.occupiedTiles.length === 10 &&
           !(currentTiles.includes(index1) && currentTiles.includes(index2)
           && currentTiles.includes(index3))) {

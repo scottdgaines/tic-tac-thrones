@@ -48,10 +48,12 @@ function verifyTile() {
 
 //Displays proper banners to announce the winner, invokes timer to reset round
 function declareWinner() {
+  grid.classList.add('hide')
+  button.classList.add('hide')
   turnBanner.classList.add('hide');
   winnerBanner.innerText = `${currentGame.currentTurn.name} sits upon the Iron Throne!`
   winnerBanner.classList.remove('hide');
-  setTimeout(reset, 3000);
+  setTimeout(roundReset, 3000);
 }
 
 //Increment win count for player data model, and updates DOM
@@ -109,7 +111,7 @@ function declareDraw() {
   button.classList.add('hide');
   grid.classList.add('hide');
   drawBanner.classList.remove('hide');
-  setTimeout(reset, 4000);
+  setTimeout(roundReset, 4000);
 }
 
 //Changes whose turn it is, updates banner and grid icon
