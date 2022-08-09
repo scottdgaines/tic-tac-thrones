@@ -35,12 +35,17 @@ Scott Gaines
 + scottdgaines@gmail.com
 + Slack: @Scott Gaines
 + LinkedIn: www.linkedin.com/in/scottdgainesfe
++ GitHub: https://github.com/scottdgaines
 
 # Developer Notes
 
 This project assignment included only the functionality and architecture requirements, leaving the theme and design up to the developer.
 
-Updates I plan on implementing in the future include:
+Overall, the project was a very productive process for me in continuing to practice and solidify concepts, and in further developing my process as a developer for both approaching a project from scratch and debugging issues in my script. I am still rusty when it comes to strategically debugging css styling issues, but overall my approach to building out the styles document had improved a lot since my last. As for javascript, I had to reach out for help with one feature (checkWinConditions()), but otherwise, I was able to tackle multiple bugs and some spicy logic problems independently, which was encouraging.
+
+Though all the required functionality is there, there is one small bug I did not have the time to address, but that I plan on resolving in the future: when a game is won on the 9th tile, both the winning banner and the draw banner will display simultaneously. I suspect this has to do with the logic / syntax in the checkWinConditions()'s else if statement.
+
+Other updates I plan on implementing in the future include:
   * Toggling the grid background image between fire and ice after each round.
   * Displaying an image from the series in place of the grid whenever a round is won.
   * Giving users the option to select their player from a list of Westeros Houses before the game begins.
