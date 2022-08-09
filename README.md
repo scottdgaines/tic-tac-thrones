@@ -24,7 +24,7 @@ This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec p
 
 # Using the App
 
-1. With your arch nemesis, decide where you alliances lie and pick a player.
+1. With your arch nemesis, decide where your alliances lie and pick a player.
 2. When it is your turn, click a tile on the grid to claim it for your House.
 3. Claim three tiles in a row (vertical, horizontal, or diagonal) to stake your claim to the Iron Throne!
 4. A draw will be declared if all nine tiles are selected without three in a row being claimed by a single house.
@@ -34,9 +34,9 @@ This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec p
 Scott Gaines
 + scottdgaines@gmail.com
 + Slack: @Scott Gaines
-+ LinkedIn: https:///www.linkedin.com/in/scottdgainesfe
++ LinkedIn: www.linkedin.com/in/scottdgainesfe
 
-# Developer Reflection and Notes
+# Developer Notes
 
 This project assignment included only the functionality and architecture requirements, leaving the theme and design up to the developer.
 
