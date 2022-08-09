@@ -1,5 +1,4 @@
-//HTML querySelectors
-//Arranged Alphabetically According to Name
+//HTML querySelectors: Arranged Alphabetically According to Name
 var button = document.querySelector('.reset-button');
 var drawBanner = document.querySelector('.draw-banner');
 var grid = document.querySelector('.grid')
@@ -13,8 +12,7 @@ var turnBanner = document.querySelector('.turn-banner');
 var turnName = document.querySelector('.turn-name');
 var winnerBanner = document.querySelector('.winner-banner');
 
-//Global Variables
-//Arranged Alphabetically According to Name
+//Global Variables: Arranged Alphabetically According to Name
 var currentGame = new Game({
   name: 'House Stark',
   id: 'one',
@@ -28,36 +26,22 @@ var currentGame = new Game({
 var player1 = currentGame.player1;
 var player2 = currentGame.player2;
 
-//Event Listeners
-//Arranged Alphabetically According to Variable Name
+//Event Listeners: Arranged Alphabetically According to Variable Name
 button.addEventListener('click', newGame);
 grid.addEventListener('click', verifyTile);
 window.addEventListener('load', newGame);
 
-//Event Handlers
-//Arranged According to Order of Invocation
+//Event Handlers: Arranged Alphabetically According to Function Name
 
-//Invoked on Window Load and/or Button Click
-//Resets Game to Original / Neuatral Setting
-function newGame() {
-  p1Title.innerText = player1.name;
-  p2Title.innerText = player2.name;
-  currentGame.currentTurn = player1;
-  turnName.innerText = ` ${currentGame.currentTurn.name}`;
-  currentGame.resetWinCount();
-  roundReset();
-}
-//Invoked by Clicking a Tile
-//Ensures an Occupied Tile Can't Be Reassigned
-function verifyTile() {
-  var selection = event.target.getAttribute('id');
-  var selectedElement = event.target;
-  if (!currentGame.occupiedTiles.includes(selection)) {
-    currentGame.logSelectedTile(selection);
-    placeLogo(selectedElement);
-    currentGame.checkWinConditions();
-    togglePlayer(player1, player2);
-  }
+//Invoked by currentGame.checkWinConditions()
+//Manipulates Styling to Show Banners According to Winner, and Sets roundReset Timer
+function declareDraw() {
+  button.classList.add('hide');
+  grid.classList.add('hide');
+  titleBanner.classList.add('hide');
+  turnBanner.classList.add('hide');
+  drawBanner.classList.remove('hide');
+  setTimeout(roundReset, 4000);
 }
 
 //Invoked by currentGame.checkWinConditions
@@ -72,29 +56,24 @@ function declareWinner() {
   setTimeout(roundReset, 3000);
 }
 
-//Invoked by currentgame.checkWinConditions() + resetWinCount()
-//Displays Updated Win Count
-function updateWinDisplay() {
-  if (player1.wins === 1) {
-    p1Wins.innerText = `${player1.wins} reign`;
-  } else if (player1.wins < 1 || player1.wins > 1) {
-    p1Wins.innerText = `${player1.wins} reigns`;
-  }
-  if (player2.wins === 1) {
-    p2Wins.innerText = `${player2.wins} reign`;
-  } else if (player2.wins < 1 || player2.wins > 1) {
-    p2Wins.innerText = `${player2.wins} reigns`;
-  }
+//Invoked on Window Load and/or Button Click
+//Resets Game to Original / Neuatral Setting
+function newGame() {
+  p1Title.innerText = player1.name;
+  p2Title.innerText = player2.name;
+  currentGame.currentTurn = player1;
+  turnName.innerText = ` ${currentGame.currentTurn.name}`;
+  currentGame.resetWinCount();
+  roundReset();
 }
 
-//Invoked by newGame() and setTimeout in declareDraw()
-//Resets Game Board Without Resetting Win Counts
-function roundReset() {
-  button.classList.remove('hide')
-  togglePlayer();
-  resetBanner();
-  resetGrid();
-}
+//Invoked by verifyTile()
+//Displays Logo of Current Player on Tile Once Selected
+function placeLogo(selectedElement) {
+ selectedElement.classList.add("disable")
+ selectedElement.innerHTML = `<img class="tile-icon" src="${currentGame.currentTurn.logo}"
+alt="${currentGame.currentTurn.name}\'s logo" />`
+};
 
 //Invoked by roundReset
 //Resets From Win or Draw Banners to Banner Displaying Current Turn
@@ -124,15 +103,13 @@ function resetGrid() {
   <article class="tile t9" id=9></article>`
 }
 
-//Invoked by currentGame.checkWinConditions()
-//Manipulates Styling to Show Banners According to Winner, and Sets roundReset Timer
-function declareDraw() {
-  button.classList.add('hide');
-  grid.classList.add('hide');
-  titleBanner.classList.add('hide');
-  turnBanner.classList.add('hide');
-  drawBanner.classList.remove('hide');
-  setTimeout(roundReset, 4000);
+//Invoked by newGame() and setTimeout in declareDraw()
+//Resets Game Board Without Resetting Win Counts
+function roundReset() {
+  button.classList.remove('hide')
+  togglePlayer();
+  resetBanner();
+  resetGrid();
 }
 
 //Invoked by verifyTile() and  roundReset()
@@ -146,10 +123,31 @@ function togglePlayer(player1, player2) {
   turnName.innerText = ` ${currentGame.currentTurn.name}`
   }
 }
- //Invoked by verifyTile()
-//Displays Logo of Current Player on Tile Once Selected
-function placeLogo(selectedElement) {
-  selectedElement.classList.add("disable")
-  selectedElement.innerHTML = `<img class="tile-icon" src="${currentGame.currentTurn.logo}"
- alt="${currentGame.currentTurn.name}\'s logo" />`
-};
+
+//Invoked by currentgame.checkWinConditions() + resetWinCount()
+//Displays Updated Win Count
+function updateWinDisplay() {
+  if (player1.wins === 1) {
+    p1Wins.innerText = `${player1.wins} reign`;
+  } else if (player1.wins < 1 || player1.wins > 1) {
+    p1Wins.innerText = `${player1.wins} reigns`;
+  }
+  if (player2.wins === 1) {
+    p2Wins.innerText = `${player2.wins} reign`;
+  } else if (player2.wins < 1 || player2.wins > 1) {
+    p2Wins.innerText = `${player2.wins} reigns`;
+  }
+}
+
+//Invoked by Clicking a Tile
+//Ensures an Occupied Tile Can't Be Reassigned
+function verifyTile() {
+  var selection = event.target.getAttribute('id');
+  var selectedElement = event.target;
+  if (!currentGame.occupiedTiles.includes(selection)) {
+    currentGame.logSelectedTile(selection);
+    placeLogo(selectedElement);
+    currentGame.checkWinConditions();
+    togglePlayer(player1, player2);
+  }
+}
