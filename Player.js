@@ -6,7 +6,8 @@ class Player {
     this.logo = player.logo,
     this.tiles = []
   }
-
+//Invoked by checkWinConditions() (Via Game Class)
+//Increments Win Property by 1
   increaseWins(){
     this.wins++;
   }
