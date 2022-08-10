@@ -1,4 +1,4 @@
-# Tic-Tac-Thrones
+# [Tic-Tac-Thrones](https://scottdgaines.github.io/tic-tac-thrones/)
 Mod 1, Final Project (solo)
 
 ## Overview
