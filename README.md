@@ -19,7 +19,7 @@ This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec p
 # Installation Steps
 
 1. Fork and ```clone``` this repo to your local machine.
-2. Run ```cd tic-tac-toe``` to move into the root directory.
+2. Run ```cd tic-tac-thrones``` to move into the root directory.
 3. Run ```open index.html``` to open the application in your browser.
 
 ## Using the App
