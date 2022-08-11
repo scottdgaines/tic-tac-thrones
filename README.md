@@ -5,7 +5,7 @@ Mod 1, Final Project (solo)
 
 The fate of Westeros is at stake as two opposing dynasties battle for the claim to the Iron Throne. Who will win?
 
-This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec provided by the Turing School of Software and Design. It's architecture includes:
+This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec provided by the Turing School of Software and Design. It's architecture consists of:
 * README.md
 * index.html
 * styles.css
@@ -18,9 +18,9 @@ This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec p
 
 # Installation Steps
 
-1. Fork and clone this repo to your local machine.
-2. Run 'cd tic-tac-toe' to move into the root directory.
-3. Run 'open index.html' to open the application in your browser.
+1. Fork and ```clone``` this repo to your local machine.
+2. Run ```cd tic-tac-toe``` to move into the root directory.
+3. Run ```open index.html``` to open the application in your browser.
 
 ## Using the App
 
