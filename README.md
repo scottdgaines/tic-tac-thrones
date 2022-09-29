@@ -1,22 +1,26 @@
 # [Tic-Tac-Thrones](https://scottdgaines.github.io/tic-tac-thrones/)
-Mod 1, Final Project (solo)
 
 ## Overview
 
 The fate of Westeros is at stake as two opposing dynasties battle for the claim to the Iron Throne. Who will win?
 
-This version of Tic-Tac-Toe was designed and built by Scott Gaines from a spec provided by the Turing School of Software and Design. It's architecture consists of:
-* README.md
-* index.html
-* styles.css
-* main.js
-* Game.js
-* Player.js
-* An assets directory containing all images
+![2022-09-28 18 22 42](https://user-images.githubusercontent.com/103966650/192911489-84f566ca-7537-41cc-ab60-f5dfeb532302.gif)
 
-![Preview Image](assets/tic-tac-thrones-screenshot.png)
+## Project Context
+I am currently studying Front End Developement at the Turing School of Software and Design. This Tic-Tac-Toe app is the final solo project for Mod 1, meaning I have been a software developer for just over 5 weeks!
 
-# Installation Steps
+Goals for this project included:
+
+- Solidify and demonstrate your understanding of:
+  - DRY JavaScript
+  - Event delegation to handle similar event listeners
+- Understand the difference between the data model and how the data is displayed on the DOM
+- Iterate through/filter DOM elements using for loops
+- Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challenge
+
+[Full Project Description](https://frontend.turing.edu/projects/module-1/tic-tac-toe-solo-v2.html)
+
+## Installation Steps
 
 1. Fork and ```clone``` this repo to your local machine.
 2. Run ```cd tic-tac-thrones``` to move into the root directory.
