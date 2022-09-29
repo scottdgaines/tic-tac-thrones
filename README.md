@@ -7,7 +7,7 @@ The fate of Westeros is at stake as two opposing dynasties battle for the claim 
 ![2022-09-28 18 22 42](https://user-images.githubusercontent.com/103966650/192911489-84f566ca-7537-41cc-ab60-f5dfeb532302.gif)
 
 ## Project Context
-I am currently studying Front End Developement at the Turing School of Software and Design. This Tic-Tac-Toe app is the final solo project for Mod 1, assigned and completed just 5 weeks into my coding career.
+I am currently studying Front End Developement at the [Turing School of Software and Design](https://turing.edu/). This Tic-Tac-Toe app is the final solo project for Mod 1, assigned and completed about 5 weeks into my coding career.
 
 Goals for this project included:
 
@@ -27,9 +27,14 @@ Goals for this project included:
 
 ## Installation Steps
 
-1. Fork and `clone` this repo to your local machine.
-2. Run ```cd tic-tac-thrones``` to move into the root directory.
-3. Run ```open index.html``` to open the application in your browser.
+If you'd like to pull down the code to your local machine:
+
+1. Make a copy of this repository by pressing the 'Fork' button in the upper right corner and following the prompts
+2. Clone your copy of the repository down to your local machine:
+  - On your forked repository's page, click the green 'Code' button, select SSH, and copy the URL
+  - Run `git clone <copied URL>` in your command line
+3. Run `cd tic-tac-thrones` to move into the root directory
+
 
 ## Using the App
 
