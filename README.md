@@ -1,4 +1,6 @@
-# [Tic-Tac-Thrones](https://scottdgaines.github.io/tic-tac-thrones/)
+# Tic-Tac-Thrones
+
+[Deployed Link](https://scottdgaines.github.io/tic-tac-thrones/)
 
 ## Overview
 
